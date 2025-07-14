@@ -1,0 +1,24 @@
+---
+
+import Meta from "./Meta.astro";
+
+interface Props {
+  title?       : string;
+  description? : string;
+  image?       : string;
+  card?        : "summary" | "summary_large_image";
+}
+
+const { 
+  title, 
+  description, 
+  image, 
+  card = "summary_large_image" 
+} = Astro.props;
+
+---
+
+{ card        && <Meta name="twitter:card"        content={card}        /> }
+{ title       && <Meta name="twitter:title"       content={title}       /> }
+{ description && <Meta name="twitter:description" content={description} /> }
+{ image       && <Meta name="twitter:image"       content={image}       /> } 
