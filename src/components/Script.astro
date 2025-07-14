@@ -1,0 +1,50 @@
+---
+import type { CrossOrigin, FetchPriority, ScriptType } from "../types";
+
+export type Script = {
+  src?            : string;
+  type?           : ScriptType;
+  async?          : boolean;
+  defer?          : boolean;
+  crossorigin?    : CrossOrigin;
+  integrity?      : string;
+  attributionsrc? : string;
+  blocking?       : string;
+  fetchpriority?  : FetchPriority;
+  nomodule?       : boolean;
+  nonce?          : string;
+  referrerpolicy? : ReferrerPolicy
+}
+
+const {
+  src,
+  type,
+  async,
+  defer,
+  crossorigin,
+  integrity,
+  attributionsrc,
+  blocking,
+  fetchpriority,
+  nomodule,
+  nonce,
+  referrerpolicy
+} = Astro.props as Script;
+
+---
+
+<script
+  {...(src            ? { "is:inline": true } : {})}
+  {...(src            ? { src               } : {})}
+  {...(type           ? { type              } : {})}
+  {...(src && async   ? { async: true       } : {})}
+  {...(src && defer   ? { defer: true       } : {})}
+  {...(crossorigin    ? { crossorigin       } : {})}
+  {...(integrity      ? { integrity         } : {})}
+  {...(attributionsrc ? { attributionsrc    } : {})}
+  {...(blocking       ? { blocking          } : {})}
+  {...(fetchpriority  ? { fetchpriority     } : {})}
+  {...(nomodule       ? { nomodule: true    } : {})}
+  {...(nonce          ? { nonce             } : {})}
+  {...(referrerpolicy ? { referrerpolicy    } : {})}
+></script>
