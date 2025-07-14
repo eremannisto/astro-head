@@ -1,0 +1,64 @@
+---
+import type { As, CrossOrigin, FetchPriority } from "../types";
+
+export type Link = {
+  rel             : string;
+  href            : string;
+  as?             : As;
+  blocking?       : string;
+  crossorigin?    : CrossOrigin;
+  disabled?       : boolean;
+  fetchpriority?  : FetchPriority;
+  hreflang?       : string;
+  imagesizes?     : string;
+  imagesrcset?    : string;
+  integrity?      : string;
+  media?          : string;
+  referrerpolicy? : ReferrerPolicy;
+  sizes?          : string;
+  title?          : string;
+  type?           : string;
+  [key: string]   : any;
+};
+
+const {
+  rel,
+  href,
+  as,
+  blocking,
+  crossorigin,
+  disabled,
+  fetchpriority,
+  hreflang,
+  imagesizes,
+  imagesrcset,
+  integrity,
+  media,
+  referrerpolicy,
+  sizes,
+  title,
+  type,
+  ...rest
+} = Astro.props as Link;
+
+---
+
+<link
+  rel={rel}
+  href={href}
+  {...(as             ? { as             } : {})}
+  {...(blocking       ? { blocking       } : {})}
+  {...(crossorigin    ? { crossorigin    } : {})}
+  {...(disabled       ? { disabled: true } : {})}
+  {...(fetchpriority  ? { fetchpriority  } : {})}
+  {...(hreflang       ? { hreflang       } : {})}
+  {...(imagesizes     ? { imagesizes     } : {})}
+  {...(imagesrcset    ? { imagesrcset    } : {})}
+  {...(integrity      ? { integrity      } : {})}
+  {...(media          ? { media          } : {})}
+  {...(referrerpolicy ? { referrerpolicy } : {})}
+  {...(sizes          ? { sizes          } : {})}
+  {...(title          ? { title          } : {})}
+  {...(type           ? { type           } : {})}
+  {...rest}
+/> 
