@@ -1,0 +1,13 @@
+---
+
+import Meta from "./Meta.astro";
+
+interface Props {
+  value?: string[];
+}
+
+const { value } = Astro.props;
+
+---
+
+{ value && <Meta name="keywords" content={value.join(', ')} /> } 
