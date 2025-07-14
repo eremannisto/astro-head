@@ -1,0 +1,33 @@
+---
+
+export type Meta = {
+  charset?      : string;
+  content?      : string;
+  httpEquiv?    : string;
+  media?        : string;
+  name?         : string;
+  property?     : string;
+  [key: string] : any;
+}
+
+const { 
+  charset = "utf-8",
+  content,
+  httpEquiv,
+  media,
+  name,
+  property,
+  ...rest
+} = Astro.props as Meta;
+
+---
+
+<meta
+  {...(charset   ? { charset   } : {})}
+  {...(content   ? { content   } : {})}
+  {...(httpEquiv ? { httpEquiv } : {})}
+  {...(media     ? { media     } : {})}
+  {...(name      ? { name      } : {})}
+  {...(property  ? { property  } : {})}
+  {...rest}
+/>
