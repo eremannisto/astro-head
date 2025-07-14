@@ -1,0 +1,15 @@
+---
+
+interface Props {
+  value     : string;
+  template? : string;
+}
+
+const { 
+  value, 
+  template = "%s"
+} = Astro.props;
+
+---
+
+<title>{template.replace("%s", value)}</title>
