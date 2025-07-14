@@ -1,0 +1,13 @@
+---
+
+import Link from "./Link.astro";
+
+interface Props {
+  value?: string;
+}
+
+const { value } = Astro.props;
+
+---
+
+{ value && <Link rel="canonical" href={value} /> } 
