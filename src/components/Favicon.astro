@@ -1,0 +1,35 @@
+---
+
+import Link, { type Link as LinkType } from "./Link.astro";
+
+export type FaviconLink = LinkType & {
+  icon  : "ico" | "png" | "svg" | "apple";
+};
+
+const { icons } = Astro.props as { 
+  icons: FaviconLink[] 
+};
+
+const getIconAttrs = (icon: FaviconLink["icon"]) => {
+  switch (icon) {
+    case "ico"  : return { rel: "icon", type: "image/x-icon"  };
+    case "png"  : return { rel: "icon", type: "image/png"     };
+    case "svg"  : return { rel: "icon", type: "image/svg+xml" };
+    case "apple": return { rel: "apple-touch-icon"            };
+  }
+};
+
+---
+
+{icons.map((icon: FaviconLink) => {
+  const attrs = getIconAttrs(icon.icon);
+  if (!attrs) return null;
+  return (
+    <Link
+      rel={attrs.rel}
+      type={attrs.type}
+      sizes={icon.size ? `${icon.size}x${icon.size}` : undefined}
+      {...Object.fromEntries(Object.entries(icon).filter(([k]) => !["rel", "type", "sizes"].includes(k)))}
+    />
+  );
+})}
