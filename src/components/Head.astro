@@ -1,0 +1,78 @@
+---
+
+import Title       from "./Title.astro";
+import Description from "./Description.astro";
+import Keywords    from "./Keywords.astro";
+import OpenGraph   from "./OpenGraph.astro";
+import Twitter     from "./Twitter.astro";
+import Index       from "./Index.astro";
+import Follow      from "./Follow.astro";
+import Canonical   from "./Canonical.astro";
+import Favicon, { type FaviconLink } from "./Favicon.astro";
+
+interface Props {
+  title?       : string;
+  template?    : string;
+  description? : string;
+  image?       : string;
+  keywords?    : string[];
+  index?       : boolean;
+  follow?      : boolean;
+  canonical?   : string;
+  author?      : string;
+  themeColor?  : string;
+  favicons?    : FaviconLink[];
+}
+
+const { 
+  title    = "Untitled",
+  template = "",
+  description, 
+  image, 
+  keywords, 
+  index,
+  follow,
+  canonical,
+  favicons = [
+    { icon: "ico",   href: "/favicon/favicon.ico"                     },
+    { icon: "png",   href: "/favicon/favicon-16.png",       size: 16  },
+    { icon: "png",   href: "/favicon/favicon-32.png",       size: 32  },
+    { icon: "png",   href: "/favicon/favicon-192.png",      size: 192 },
+    { icon: "png",   href: "/favicon/favicon-512.png",      size: 512 },
+    { icon: "apple", href: "/favicon/apple-touch-icon.png", size: 180 }
+  ],
+} = Astro.props;
+
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+
+  <Title value={title} template={template} />
+  <Description value={description} />
+  <Keywords value={keywords} />
+
+  <OpenGraph 
+    title={title} 
+    description={description} 
+    image={image} 
+    url={canonical} 
+  />
+
+  <Twitter 
+    title={title} 
+    description={description} 
+    image={image} 
+  />
+
+  <Index value={index} />
+  <Follow value={follow} />
+  <Canonical value={canonical} />
+
+  <Favicon icons={favicons} />
+
+  <slot />
+</head>
+
