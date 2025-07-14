@@ -1,0 +1,13 @@
+---
+
+import Meta from "./Meta.astro";
+
+interface Props {
+  value?: boolean;
+}
+
+const { value } = Astro.props;
+
+---
+
+<Meta name="robots" content={value ? 'follow' : 'nofollow'} /> 
