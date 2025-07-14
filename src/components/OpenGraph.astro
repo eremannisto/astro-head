@@ -1,0 +1,27 @@
+---
+
+import Meta from "./Meta.astro";
+
+interface Props {
+  title?       : string;
+  description? : string;
+  image?       : string;
+  url?         : string;
+  type?        : string;
+}
+
+const { 
+  title, 
+  description, 
+  image, 
+  url, 
+  type = "website" 
+} = Astro.props;
+
+---
+
+{ title       && <Meta property = "og:title"       content={title}       /> }
+{ description && <Meta property = "og:description" content={description} /> }
+{ image       && <Meta property = "og:image"       content={image}       /> }
+{ url         && <Meta property = "og:url"         content={url}         /> }
+{ type        && <Meta property = "og:type"        content={type}        /> }
