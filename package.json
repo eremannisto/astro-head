@@ -1,6 +1,6 @@
 {
   "name": "@mannisto/astro-head",
-  "version": "v1.1.0-alpha.0",
+  "version": "v1.0.0",
   "description": "Composable Astro components for managing your HTML <head> in Astro projects.",
   "author": "Ere Männistö <info@mannisto.io>",
   "license": "MIT",

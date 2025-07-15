@@ -35,7 +35,6 @@ You can also pass custom elements (for example: analytics scripts) as children t
 
 ```astro
 ---
-
 // layouts/Layout.astro
 import Head from "@mannisto/components/Head.astro";
 
@@ -50,7 +49,6 @@ const {
   description = "Default description foo faa lorem ipsum",
   keywords = ["Default", "Keywords"]
 } = Astro.props;
-
 ---
 
 <!DOCTYPE html>
@@ -75,10 +73,8 @@ const {
 
 ```astro
 ---
-
 // pages/index.astro
-import Root from "../layouts/Root.astro"
-
+import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout 
@@ -89,24 +85,26 @@ import Root from "../layouts/Root.astro"
 </Layout>
 ```
 
-## Components
 
-### Author
+
+<br>
+
+
+
+## Author
 | Prop     | Type     | Description         | Default     |
 |----------|----------|---------------------|-------------|
 | `value`  | `string` | Author name/content | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head author="Jane Doe" />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Author.astro";
-
 ---
 
 <Author value="Jane Doe" />
@@ -118,22 +116,20 @@ import Head from "@mannisto/components/Author.astro";
 
 
 
-### Canonical
+## Canonical
 | Prop     | Type     | Description   | Default     |
 |----------|----------|---------------|-------------|
 | `value`  | `string` | Canonical URL | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head canonical="https://example.com/page" />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Canonical.astro";
-
 ---
 
 <Canonical value="https://example.com/page" />
@@ -145,17 +141,17 @@ import Head from "@mannisto/components/Canonical.astro";
 
 
 
-### Description
+## Description
 | Prop     | Type     | Description      | Default     |
 |----------|----------|------------------|-------------|
 | `value`  | `string` | Meta description | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head description="A page description." />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 <Description value="A page description." />
 ```
@@ -166,14 +162,14 @@ import Head from "@mannisto/components/Canonical.astro";
 
 
 
-### Favicon
+## Favicon
 | Prop       | Type             | Description              | Default       |
 |------------|------------------|--------------------------|---------------|
 | `favicons` | `FaviconLink[]`  | Array of favicon configs | `favicon.ico` |
 
 By default the app expects one `favicon.ico` file in the root of the `public` folder, if the prop is left empty. Preset options are `ico`, `png`, `svg`, or `apple`.
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head
   favicons={[
@@ -187,12 +183,10 @@ By default the app expects one `favicon.ico` file in the root of the `public` fo
 />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Favicon.astro";
-
 ---
 
 <Favicon icons={[
@@ -206,22 +200,20 @@ import Head from "@mannisto/components/Favicon.astro";
 
 
 
-### Follow
+## Follow
 | Prop     | Type      | Description           | Default     |
 |----------|-----------|-----------------------|-------------|
 | `value`  | `boolean` | Allow following links | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head follow={true} />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Follow.astro";
-
 ---
 
 <Follow value={true} />
@@ -233,7 +225,7 @@ import Head from "@mannisto/components/Follow.astro";
 
 
 
-### Head
+## Head
 The `Head` component is the main component that handles all head elements in one place.
 
 | Prop          | Type            | Description                        | Default         |
@@ -252,9 +244,7 @@ The `Head` component is the main component that handles all head elements in one
 
 ```astro
 ---
-
 import Head from "@mannisto/components/Head.astro";
-
 ---
 
 <Head
@@ -285,7 +275,7 @@ import Head from "@mannisto/components/Head.astro";
 
 
 
-### Index
+## Index
 | Prop     | Type      | Description                  | Default     |
 |----------|-----------|------------------------------|-------------|
 | `value`  | `boolean` | Allow search engine indexing | `undefined` |
@@ -299,9 +289,7 @@ import Head from "@mannisto/components/Head.astro";
 ### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Index.astro";
-
 ---
 
 <Index value={true} />
@@ -313,22 +301,20 @@ import Head from "@mannisto/components/Index.astro";
 
 
 
-### Keywords
+## Keywords
 | Prop     | Type        | Description         | Default     |
 |----------|-------------|---------------------|-------------|
 | `value`  | `string[]`  | Meta keywords array | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head keywords={["astro", "web", "components"]} />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Keywords.astro";
-
 ---
 
 <Keywords value={["astro", "web", "components"]} />
@@ -340,7 +326,7 @@ import Head from "@mannisto/components/Keywords.astro";
 
 
 
-### Link
+## Link
 | Prop             | Type      | Description                      | Default     |
 |------------------|-----------|----------------------------------|-------------|
 | `rel`            | `string`  | Link relationship                | `undefined` |
@@ -361,7 +347,7 @@ import Head from "@mannisto/components/Keywords.astro";
 | `type`           | `string`  | MIME type                        | `undefined` |
 | `[key]`          | `any`     | Any additional custom attributes | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head
   links={[
@@ -372,12 +358,10 @@ import Head from "@mannisto/components/Keywords.astro";
 />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Link.astro";
-
 ---
 
 <Link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -391,7 +375,7 @@ import Head from "@mannisto/components/Link.astro";
 
 
 
-### Meta
+## Meta
 | Prop        | Type     | Description                      | Default     |
 |-------------|----------|----------------------------------|-------------|
 | `charset`   | `string` | Character encoding               | `"utf-8"`   |
@@ -402,7 +386,7 @@ import Head from "@mannisto/components/Link.astro";
 | `property`  | `string` | Property (for OpenGraph, etc.)   | `undefined` |
 | `[key]`     | `any`    | Any additional custom attributes | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head 
   meta={[
@@ -412,12 +396,10 @@ import Head from "@mannisto/components/Link.astro";
 />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Meta.astro";
-
 ---
 
 <Meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -430,7 +412,7 @@ import Head from "@mannisto/components/Meta.astro";
 
 
 
-### OpenGraph
+## OpenGraph
 | Prop         | Type     | Description                  | Default     |
 |--------------|----------|------------------------------|-------------|
 | `title`      | `string` | Open Graph title             | `undefined` |
@@ -441,7 +423,7 @@ import Head from "@mannisto/components/Meta.astro";
 
 If you use the `Head` component and do not provide OpenGraph props, it will automatically use the page's title, description, canonical URL, and image. You can override any of these by passing an `openGraph` prop to `Head`.
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head openGraph={{ 
   title: "About Us", 
@@ -451,12 +433,10 @@ If you use the `Head` component and do not provide OpenGraph props, it will auto
 }} />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/OpenGraph.astro";
-
 ---
 
 <OpenGraph 
@@ -473,7 +453,7 @@ import Head from "@mannisto/components/OpenGraph.astro";
 
 
 
-### Script
+## Script
 | Prop             | Type       | Description                        | Default     |
 |------------------|------------|------------------------------------|-------------|
 | `src`            | `string`   | Script source URL                  | `undefined` |
@@ -489,7 +469,7 @@ import Head from "@mannisto/components/OpenGraph.astro";
 | `nonce`          | `string`   | Cryptographic nonce                | `undefined` |
 | `referrerpolicy` | `string`   | Referrer policy                    | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head
   scripts={[
@@ -499,12 +479,10 @@ import Head from "@mannisto/components/OpenGraph.astro";
 />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Script.astro";
-
 ---
 
 <Script src="https://cdn.example.com/analytics.js" async />
@@ -517,22 +495,20 @@ import Head from "@mannisto/components/Script.astro";
 
 
 
-### ThemeColor
+## ThemeColor
 | Prop     | Type     | Description                | Default     |
 |----------|----------|----------------------------|-------------|
 | `value`  | `string` | Theme color                | `undefined` |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head themeColor="#ffffff" />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/ThemeColor.astro";
-
 ---
 
 <ThemeColor value="#ffffff" />
@@ -543,23 +519,21 @@ import Head from "@mannisto/components/ThemeColor.astro";
 
 
 
-### Title
+## Title
 | Prop       | Type     | Description              | Default     |
 |------------|----------|--------------------------|-------------|
 | `value`    | `string` | Page title               | `undefined` |
 | `template` | `string` | Title template with `%s` | `"%s"`      |
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head title="About Us" template="%s | Acme Studio" />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Title.astro";
-
 ---
 
 <Title value="About Us" template="%s | Acme Studio" />
@@ -571,7 +545,7 @@ import Head from "@mannisto/components/Title.astro";
 
 
 
-### Twitter
+## Twitter
 | Prop         | Type     | Description              | Default                 |
 |--------------|----------|--------------------------|-------------------------|
 | `title`      | `string` | Twitter card title       | `undefined`             |
@@ -581,7 +555,7 @@ import Head from "@mannisto/components/Title.astro";
 
 If you use the `Head` component and do not provide Twitter props, it will automatically fall back to the page's title, description, and image. You can override any of these by passing a `twitter` prop to `Head`.
 
-#### Passed as a prop
+### Passed as a prop
 ```astro
 <Head twitter={{ 
   title: "About Us", 
@@ -591,12 +565,10 @@ If you use the `Head` component and do not provide Twitter props, it will automa
 }} />
 ```
 
-#### Used as a standalone component
+### Used as a standalone component
 ```astro
 ---
-
 import Head from "@mannisto/components/Twitter.astro";
-
 ---
 
 <Twitter 
