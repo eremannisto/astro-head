@@ -1,6 +1,6 @@
 {
   "name": "@mannisto/astro-head",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "description": "Composable Astro components for managing your HTML <head> in Astro projects.",
   "author": "Ere Männistö <info@mannisto.io>",
   "license": "MIT",
@@ -15,8 +15,7 @@
     "seo",
     "components"
   ],
-  "main": "src/index.ts",
-  "types": "src/types.d.ts",
+  "types": "index.d.ts",
   "files": [
     "src",
     "src/components",
@@ -24,7 +23,21 @@
     "LICENSE"
   ],
   "exports": {
-    "./components/*": "./src/components/*"
+    "./Author.astro"     : "./src/components/Author.astro",
+    "./Canonical.astro"  : "./src/components/Canonical.astro",
+    "./Description.astro": "./src/components/Description.astro",
+    "./Favicon.astro"    : "./src/components/Favicon.astro",
+    "./Follow.astro"     : "./src/components/Follow.astro",
+    "./Head.astro"       : "./src/components/Head.astro",
+    "./Index.astro"      : "./src/components/Index.astro",
+    "./Keywords.astro"   : "./src/components/Keywords.astro",
+    "./Link.astro"       : "./src/components/Link.astro",
+    "./Meta.astro"       : "./src/components/Meta.astro",
+    "./OpenGraph.astro"  : "./src/components/OpenGraph.astro",
+    "./Script.astro"     : "./src/components/Script.astro",
+    "./ThemeColor.astro" : "./src/components/ThemeColor.astro",
+    "./Title.astro"      : "./src/components/Title.astro",
+    "./Twitter.astro"    : "./src/components/Twitter.astro"
   },
   "peerDependencies": {
     "astro": ">=3.0.0"
