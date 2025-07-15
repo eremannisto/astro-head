@@ -36,7 +36,7 @@ You can also pass custom elements (for example: analytics scripts) as children t
 ```astro
 ---
 // layouts/Layout.astro
-import Head from "@mannisto/components/Head.astro";
+import Head from "@mannisto/Head.astro";
 
 interface Props {
   title?: string
@@ -104,7 +104,7 @@ import Layout from "../layouts/Layout.astro"
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Author.astro";
+import Head from "@mannisto/Author.astro";
 ---
 
 <Author value="Jane Doe" />
@@ -129,7 +129,7 @@ import Head from "@mannisto/components/Author.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Canonical.astro";
+import Head from "@mannisto/Canonical.astro";
 ---
 
 <Canonical value="https://example.com/page" />
@@ -186,7 +186,7 @@ By default the app expects one `favicon.ico` file in the root of the `public` fo
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Favicon.astro";
+import Head from "@mannisto/Favicon.astro";
 ---
 
 <Favicon icons={[
@@ -213,7 +213,7 @@ import Head from "@mannisto/components/Favicon.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Follow.astro";
+import Head from "@mannisto/Follow.astro";
 ---
 
 <Follow value={true} />
@@ -244,7 +244,7 @@ The `Head` component is the main component that handles all head elements in one
 
 ```astro
 ---
-import Head from "@mannisto/components/Head.astro";
+import Head from "@mannisto/Head.astro";
 ---
 
 <Head
@@ -289,7 +289,7 @@ import Head from "@mannisto/components/Head.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Index.astro";
+import Head from "@mannisto/Index.astro";
 ---
 
 <Index value={true} />
@@ -314,7 +314,7 @@ import Head from "@mannisto/components/Index.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Keywords.astro";
+import Head from "@mannisto/Keywords.astro";
 ---
 
 <Keywords value={["astro", "web", "components"]} />
@@ -361,7 +361,7 @@ import Head from "@mannisto/components/Keywords.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Link.astro";
+import Head from "@mannisto/Link.astro";
 ---
 
 <Link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -399,7 +399,7 @@ import Head from "@mannisto/components/Link.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Meta.astro";
+import Head from "@mannisto/Meta.astro";
 ---
 
 <Meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -436,7 +436,7 @@ If you use the `Head` component and do not provide OpenGraph props, it will auto
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/OpenGraph.astro";
+import Head from "@mannisto/OpenGraph.astro";
 ---
 
 <OpenGraph 
@@ -482,7 +482,7 @@ import Head from "@mannisto/components/OpenGraph.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Script.astro";
+import Head from "@mannisto/Script.astro";
 ---
 
 <Script src="https://cdn.example.com/analytics.js" async />
@@ -508,7 +508,7 @@ import Head from "@mannisto/components/Script.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/ThemeColor.astro";
+import Head from "@mannisto/ThemeColor.astro";
 ---
 
 <ThemeColor value="#ffffff" />
@@ -533,7 +533,7 @@ import Head from "@mannisto/components/ThemeColor.astro";
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Title.astro";
+import Head from "@mannisto/Title.astro";
 ---
 
 <Title value="About Us" template="%s | Acme Studio" />
@@ -568,7 +568,7 @@ If you use the `Head` component and do not provide Twitter props, it will automa
 ### Used as a standalone component
 ```astro
 ---
-import Head from "@mannisto/components/Twitter.astro";
+import Head from "@mannisto/Twitter.astro";
 ---
 
 <Twitter 
