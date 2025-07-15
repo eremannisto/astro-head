@@ -1,14 +1,6 @@
 ---
 
-export type Meta = {
-  charset?      : string;
-  content?      : string;
-  httpEquiv?    : string;
-  media?        : string;
-  name?         : string;
-  property?     : string;
-  [key: string] : any;
-}
+import type { Meta } from "../types";
 
 const { 
   charset = "utf-8",
@@ -17,7 +9,6 @@ const {
   media,
   name,
   property,
-  ...rest
 } = Astro.props as Meta;
 
 ---
@@ -29,5 +20,4 @@ const {
   {...(media     ? { media     } : {})}
   {...(name      ? { name      } : {})}
   {...(property  ? { property  } : {})}
-  {...rest}
 />

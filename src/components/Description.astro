@@ -1,12 +1,9 @@
 ---
 
+import type { Description } from "../types";
 import Meta from "./Meta.astro";
 
-interface Props {
-  value?: string;
-}
-
-const { value } = Astro.props;
+const { value } = Astro.props as Description;
 
 ---
 

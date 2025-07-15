@@ -1,20 +1,6 @@
 ---
-import type { CrossOrigin, FetchPriority, ScriptType } from "../types";
 
-export type Script = {
-  src?            : string;
-  type?           : ScriptType;
-  async?          : boolean;
-  defer?          : boolean;
-  crossorigin?    : CrossOrigin;
-  integrity?      : string;
-  attributionsrc? : string;
-  blocking?       : string;
-  fetchpriority?  : FetchPriority;
-  nomodule?       : boolean;
-  nonce?          : string;
-  referrerpolicy? : ReferrerPolicy
-}
+import type { Script } from "../types";
 
 const {
   src,
@@ -34,7 +20,6 @@ const {
 ---
 
 <script
-  {...(src            ? { "is:inline": true } : {})}
   {...(src            ? { src               } : {})}
   {...(type           ? { type              } : {})}
   {...(src && async   ? { async: true       } : {})}

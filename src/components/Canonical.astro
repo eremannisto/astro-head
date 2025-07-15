@@ -1,12 +1,9 @@
 ---
 
+import type { Canonical } from "../types";
 import Link from "./Link.astro";
 
-interface Props {
-  value?: string;
-}
-
-const { value } = Astro.props;
+const { value } = Astro.props as Canonical;
 
 ---
 

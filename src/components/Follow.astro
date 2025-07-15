@@ -1,12 +1,9 @@
 ---
 
+import type { Follow } from "../types";
 import Meta from "./Meta.astro";
 
-interface Props {
-  value?: boolean;
-}
-
-const { value } = Astro.props;
+const { value } = Astro.props as Follow;
 
 ---
 

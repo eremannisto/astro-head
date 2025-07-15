@@ -1,17 +1,18 @@
 ---
 
-import Link, { type Link as LinkType } from "./Link.astro";
+import type { Favicon } from "../types";
+import Link from "./Link.astro";
 
-export type FaviconLink = LinkType & {
-  icon  : "ico" | "png" | "svg" | "apple";
+const { 
+  icons = [
+    { preset: "ico", href: "favicon.ico" },
+  ] as Favicon[]
+} = Astro.props as { 
+  icons: Favicon[] 
 };
 
-const { icons } = Astro.props as { 
-  icons: FaviconLink[] 
-};
-
-const getIconAttrs = (icon: FaviconLink["icon"]) => {
-  switch (icon) {
+const getPreset = (preset: Favicon["preset"]) => {
+  switch (preset) {
     case "ico"  : return { rel: "icon", type: "image/x-icon"  };
     case "png"  : return { rel: "icon", type: "image/png"     };
     case "svg"  : return { rel: "icon", type: "image/svg+xml" };
@@ -21,8 +22,8 @@ const getIconAttrs = (icon: FaviconLink["icon"]) => {
 
 ---
 
-{icons.map((icon: FaviconLink) => {
-  const attrs = getIconAttrs(icon.icon);
+{icons.map((icon) => {
+  const attrs = getPreset(icon.preset);
   if (!attrs) return null;
   return (
     <Link

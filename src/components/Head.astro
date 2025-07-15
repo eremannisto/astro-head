@@ -1,47 +1,33 @@
 ---
 
-import Title       from "./Title.astro";
+import type { Head } from "../types";
+import Author      from "./Author.astro";
+import Canonical   from "./Canonical.astro";
 import Description from "./Description.astro";
+import Favicon     from "./Favicon.astro";
+import Follow      from "./Follow.astro";
+import Index       from "./Index.astro";
 import Keywords    from "./Keywords.astro";
 import OpenGraph   from "./OpenGraph.astro";
+import Title       from "./Title.astro";
+import ThemeColor  from "./ThemeColor.astro";
 import Twitter     from "./Twitter.astro";
-import Index       from "./Index.astro";
-import Follow      from "./Follow.astro";
-import Canonical   from "./Canonical.astro";
-import Favicon, { type FaviconLink } from "./Favicon.astro";
-
-interface Props {
-  title?       : string;
-  template?    : string;
-  description? : string;
-  image?       : string;
-  keywords?    : string[];
-  index?       : boolean;
-  follow?      : boolean;
-  canonical?   : string;
-  author?      : string;
-  themeColor?  : string;
-  favicons?    : FaviconLink[];
-}
 
 const { 
-  title    = "Untitled",
-  template = "",
-  description, 
-  image, 
-  keywords, 
-  index,
-  follow,
+  author,
   canonical,
-  favicons = [
-    { icon: "ico",   href: "/favicon/favicon.ico"                     },
-    { icon: "png",   href: "/favicon/favicon-16.png",       size: 16  },
-    { icon: "png",   href: "/favicon/favicon-32.png",       size: 32  },
-    { icon: "png",   href: "/favicon/favicon-192.png",      size: 192 },
-    { icon: "png",   href: "/favicon/favicon-512.png",      size: 512 },
-    { icon: "apple", href: "/favicon/apple-touch-icon.png", size: 180 }
-  ],
-} = Astro.props;
+  description, 
+  favicons,
+  follow,
+  image, 
+  index,
+  keywords, 
+  openGraph,
+  template,
+  themeColor,
+  title,
+  twitter,
+} = Astro.props as Head;
 
 ---
 
@@ -54,22 +40,28 @@ const {
   <Description value={description} />
   <Keywords value={keywords} />
 
-  <OpenGraph 
-    title={title} 
-    description={description} 
-    image={image} 
-    url={canonical} 
-  />
+  {!openGraph ? (
+    <OpenGraph 
+      title={title} 
+      description={description} 
+      image={image} 
+      url={canonical} 
+    />
+  ) : ( <OpenGraph {...openGraph} /> )}
 
-  <Twitter 
-    title={title} 
-    description={description} 
-    image={image} 
-  />
+  {!twitter ? (
+    <Twitter 
+      title={title} 
+      description={description} 
+      image={image} 
+    />
+  ) : ( <Twitter {...twitter} /> )}
 
   <Index value={index} />
   <Follow value={follow} />
   <Canonical value={canonical} />
+  <Author value={author} />
+  <ThemeColor value={themeColor} />
 
   <Favicon icons={favicons} />
 

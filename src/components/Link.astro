@@ -1,25 +1,6 @@
 ---
-import type { As, CrossOrigin, FetchPriority } from "../types";
 
-export type Link = {
-  rel             : string;
-  href            : string;
-  as?             : As;
-  blocking?       : string;
-  crossorigin?    : CrossOrigin;
-  disabled?       : boolean;
-  fetchpriority?  : FetchPriority;
-  hreflang?       : string;
-  imagesizes?     : string;
-  imagesrcset?    : string;
-  integrity?      : string;
-  media?          : string;
-  referrerpolicy? : ReferrerPolicy;
-  sizes?          : string;
-  title?          : string;
-  type?           : string;
-  [key: string]   : any;
-};
+import type { Link } from "../types";
 
 const {
   rel,
@@ -38,7 +19,6 @@ const {
   sizes,
   title,
   type,
-  ...rest
 } = Astro.props as Link;
 
 ---
@@ -60,5 +40,4 @@ const {
   {...(sizes          ? { sizes          } : {})}
   {...(title          ? { title          } : {})}
   {...(type           ? { type           } : {})}
-  {...rest}
 /> 
