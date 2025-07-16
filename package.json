@@ -24,6 +24,10 @@
     "LICENSE"
   ],
   "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.d.ts"
+    },
     "./components/*": "./src/components/*"
   },
   "peerDependencies": {
